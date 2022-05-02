@@ -1,0 +1,107 @@
+/* .popup {
+    position: fixed;
+    top: 10;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 1;
+    z-index: 2;
+
+}
+
+.popup-inner {
+    position: relative;
+    padding-top: 100px;
+    width: 100%;
+    max-width: 640px;
+    background-color: gray;
+    height: 200px;
+}
+
+
+.popup-inner .close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+
+.items {
+    position: fixed;
+    text-align: center;
+    align-items: center;
+    width: 500px;
+    height: 500px;
+    left: 400px;
+    justify-content: center;
+    background-color: beige;
+    border: 4px solid black;
+}
+
+.button {
+    background-color: #4CAF50;
+
+    border-radius: 8px;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+
+}
+
+.button1 {
+    background-color: #4CAF50;
+    border-radius: 8px;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.button2 {
+    background-color: #4CAF50;
+    border-radius: 8px;
+    color: white;
+    padding: 50px 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+}
+
+
+.length {
+    font-size: 20px;
+    padding-right: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.display {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    padding-left: 170px;
+}
+
+.input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.label {
+    font-size: 20px;
+    padding-right: 40px;
+    font-family: Arial,
+        Helvetica,
+        sans-serif;
+    text-align: center;
+} */

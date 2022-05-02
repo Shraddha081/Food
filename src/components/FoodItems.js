@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 function FoodItems(props) {
   const getFormattedPrice = (price) => `${price}`;
@@ -26,11 +26,21 @@ function FoodItems(props) {
   const buttonEvent = (id) => {
     console.log(id);
     const newList = props.food.filter((item) => item.id !== id);
+    localStorage.setItem("items", JSON.stringify(newList))
+     localStorage.setItem("itemname", JSON.stringify(newList))
+
     props.setFood(newList);
   };
 
   return (
+    
     <div>
+      <button
+             className="button1"
+             onClick={() => props.setButtonPopup(true)}
+           >
+             Add
+          </button>
       {props.food.map((item, index) => {
         return (
           <p key={index}>
@@ -46,6 +56,7 @@ function FoodItems(props) {
             <button className="button" onClick={() => buttonEvent(item.id)}>
               Delete
             </button>
+
           </p>
         );
       })}

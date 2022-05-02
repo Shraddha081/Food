@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 
 function Form1(props) {
 
@@ -8,23 +8,30 @@ function Form1(props) {
 
     const iname = e.target.iname.value;
     const pname = e.target.pname.value;
-    if(!iname){
-      props.setError("can not be empty");
-    }
-    else{
-    props.setFood([...props.food, {id:new Date().getTime().toString() , foodItem: iname, price: Number(pname)}])
-    props.setCheckedState((prevState) => [...prevState, false])
-    // props.setFood([...props.food, {price: pname}])
-        console.log(pname);
-  }
+    
+    props.setFood(
+      prevState=>{
+    let temp =[...prevState, {id:new Date().getTime().toString() , foodItem: iname, price: Number(pname)}];
+    localStorage.setItem("items",JSON.stringify(temp))
+    return temp;
+      }
+    )
+    
+    props.setCheckedState(
+      (prevState) => {
+        let temp = [...prevState, false]
+    localStorage.setItem("itemname", JSON.stringify(temp) )
+    return temp;
+    })
   }
 
-
+  
   return (
      <div>
        
        <form onSubmit ={onSubmit}>
          <div>
+           
             <p> Add Items: </p>
            <label className='label'> Item Name: </label><br/>
             <input type='text' name = "iname" className='input'/><br/>
