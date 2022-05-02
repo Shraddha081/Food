@@ -12,35 +12,51 @@ const Menu_Items = [
 ];
 
 function App() {
-  const [food, setFood] = useState([])
+  const [food, setFood] = useState(JSON.parse(localStorage.getItem("items"))||Menu_Items)
   const [total, setTotal] =useState(0);
-  const [checkedState, setCheckedState] = useState([]);
+  const [checkedState, setCheckedState] = useState(JSON.parse(localStorage.getItem("itemname"))||new Array(food.length).fill(false) );
   const [buttonPopup, setButtonPopup] = useState (false);
 
-    useEffect(() => {
-    if (!localStorage.getItem("items")) {
-      localStorage.setItem("items", JSON.stringify(Menu_Items));
+useEffect(() =>{
+  localStorage.setItem("items", JSON.stringify(food));
+  localStorage.setItem("itemname", JSON.stringify(checkedState));
 
-      setFood(Menu_Items);
-    } else {
-      let MenuItems = JSON.parse(localStorage.getItem("items"));
+}, []);
 
-      setFood(MenuItems);
-    }
-  }, []);
+  //   useEffect(() => {
+  //   if (!localStorage.getItem("items")) {
+  //     localStorage.setItem("items", JSON.stringify(Menu_Items));
 
-  useEffect(()=>{
-    if(!localStorage.getItem("itemname")){
-      let arr= new Array(food.length).fill(false)
-      localStorage.setItem("itemname", JSON.stringify(arr))
-      setCheckedState(arr)
-    }
-    else{
-      let Menuitems = JSON.parse(localStorage.getItem("itemname"));
-      setCheckedState(Menuitems);
-    }
-    // setCheckedState(JSON.parse(localStorage.getItem("itemname"))|| new Array(food.length).fill(false))
-  },[food])
+  //     setFood(Menu_Items);
+  //   } else {
+  //     let MenuItems = JSON.parse(localStorage.getItem("items"));
+
+  //     setFood(MenuItems);
+  //   }
+  //   if(!localStorage.getItem("itemname")){
+  //     let arr= new Array(food.length).fill(false)
+  //     console.log({arr,food})
+  //     localStorage.setItem("itemname", JSON.stringify(arr))
+  //     setCheckedState(arr)
+  //   }
+  //   else{
+  //     let Menuitems = JSON.parse(localStorage.getItem("itemname"));
+  //     setCheckedState(Menuitems);
+  //   }
+  // }, []);
+
+  // useEffect(()=>{
+  //   if(!localStorage.getItem("itemname")){
+  //     let arr= new Array(food.length).fill(false)
+  //     localStorage.setItem("itemname", JSON.stringify(arr))
+  //     setCheckedState(arr)
+  //   }
+  //   else{
+  //     let Menuitems = JSON.parse(localStorage.getItem("itemname"));
+  //     setCheckedState(Menuitems);
+  //   }
+  //   // setCheckedState(JSON.parse(localStorage.getItem("itemname"))|| new Array(food.length).fill(false))
+  // },[food])
   
   return (
     <>

@@ -23,13 +23,20 @@ function FoodItems(props) {
     props.setTotal(totalPrice);
   };
 
-  const buttonEvent = (id) => {
-    console.log(id);
+  const buttonEvent = (id, position) => {
+     console.log(id);
     const newList = props.food.filter((item) => item.id !== id);
     localStorage.setItem("items", JSON.stringify(newList))
-     localStorage.setItem("itemname", JSON.stringify(newList))
+    const updatedCheckedState = props.checkedState.map((item, index) =>{
+    if(index !== position){
+      return item;
+    }
+    });
+
 
     props.setFood(newList);
+    props.setCheckedState(updatedCheckedState);
+    localStorage.setItem("itemname", JSON.stringify(updatedCheckedState));
   };
 
   return (
@@ -53,7 +60,7 @@ function FoodItems(props) {
             />
             {item.foodItem}
             {getFormattedPrice(item.price)}
-            <button className="button" onClick={() => buttonEvent(item.id)}>
+            <button className="button" onClick={() => buttonEvent(item.id, index)}>
               Delete
             </button>
 
